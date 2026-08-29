@@ -1,0 +1,346 @@
+/* =========================================================
+   KeReview — Claymorphic + Glassmorphic theme
+   Palette inspired by the Kenyan flag: black, red, green, white
+   plus a warm savannah-gold accent.
+   ========================================================= */
+
+:root {
+  --ke-black: #14171a;
+  --ke-green: #0a7b3e;
+  --ke-green-light: #23a35a;
+  --ke-red: #c8102e;
+  --ke-red-light: #e14b5f;
+  --ke-gold: #e8b84b;
+  --ke-white: #ffffff;
+
+  --bg-base: #0e1912;
+  --bg-gradient: radial-gradient(1200px 800px at 10% -10%, #123b25 0%, transparent 55%),
+    radial-gradient(1000px 700px at 100% 0%, #3a0f16 0%, transparent 50%),
+    linear-gradient(160deg, #0d1a13 0%, #0a120e 45%, #150c0e 100%);
+
+  --clay-surface: #eef3ee;
+  --clay-surface-dark: #d7e0d8;
+  --clay-shadow-light: rgba(255, 255, 255, 0.75);
+  --clay-shadow-dark: rgba(20, 40, 28, 0.35);
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-bg-strong: rgba(255, 255, 255, 0.14);
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  --text-light: #f4f7f4;
+  --text-muted: rgba(244, 247, 244, 0.68);
+  --text-dark: #1c2620;
+  --text-dark-muted: #55645a;
+
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+
+  --font-display: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-light);
+  background: var(--bg-gradient);
+  background-color: var(--bg-base);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  margin: 0 0 0.4em;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 64px;
+  flex: 1;
+}
+
+/* ---------- Glassmorphic building blocks ---------- */
+
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+}
+
+.glass-panel-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(14, 25, 18, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ---------- Claymorphic building blocks ---------- */
+
+.clay-card {
+  background: linear-gradient(145deg, #f4f8f4, #e4ece3);
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 24px var(--clay-shadow-dark), -8px -8px 20px var(--clay-shadow-light);
+  color: var(--text-dark);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.clay-card-dark {
+  background: linear-gradient(145deg, #182a1f, #101a14);
+  border-radius: var(--radius-lg);
+  box-shadow: 10px 10px 24px rgba(0, 0, 0, 0.45), -6px -6px 18px rgba(255, 255, 255, 0.04);
+  color: var(--text-light);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  color: var(--ke-white);
+  background: linear-gradient(150deg, var(--ke-green-light), var(--ke-green));
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.35), -4px -4px 10px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.clay-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.clay-btn:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.35), inset 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.clay-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: none;
+  transform: none;
+}
+
+.clay-btn.secondary {
+  background: linear-gradient(150deg, #2a2f2a, #1a1d1a);
+  color: var(--text-light);
+}
+
+.clay-btn.danger {
+  background: linear-gradient(150deg, var(--ke-red-light), var(--ke-red));
+}
+
+.clay-btn.gold {
+  background: linear-gradient(150deg, #f2cd76, var(--ke-gold));
+  color: #3a2a05;
+}
+
+.clay-btn.ghost {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-light);
+}
+
+.clay-btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.clay-btn.sm {
+  padding: 8px 16px;
+  font-size: 0.85rem;
+}
+
+.clay-input,
+.clay-select,
+.clay-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  padding: 13px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-light);
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3), inset -2px -2px 6px rgba(255, 255, 255, 0.03);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clay-input::placeholder,
+.clay-textarea::placeholder {
+  color: rgba(244, 247, 244, 0.42);
+}
+
+.clay-input:focus,
+.clay-select:focus,
+.clay-textarea:focus {
+  border-color: var(--ke-green-light);
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(35, 163, 90, 0.25);
+}
+
+.clay-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.clay-select option {
+  background: #14201a;
+  color: var(--text-light);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-light);
+}
+
+.badge.upcoming {
+  background: linear-gradient(150deg, #f2cd76, var(--ke-gold));
+  color: #3a2a05;
+  border: none;
+}
+
+.badge.released {
+  background: rgba(35, 163, 90, 0.22);
+  color: #7be3ac;
+  border: 1px solid rgba(35, 163, 90, 0.35);
+}
+
+.container-flex {
+  display: flex;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: var(--ke-gold);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.error-banner {
+  background: rgba(200, 16, 46, 0.18);
+  border: 1px solid rgba(200, 16, 46, 0.4);
+  color: #ffb3bf;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.success-banner {
+  background: rgba(35, 163, 90, 0.18);
+  border: 1px solid rgba(35, 163, 90, 0.4);
+  color: #9dedbe;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 56px 24px;
+  color: var(--text-muted);
+}
+
+.empty-state .emoji {
+  font-size: 2.6rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+@media (max-width: 640px) {
+  .page-container {
+    padding: 0 14px 48px;
+  }
+}
